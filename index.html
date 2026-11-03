@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de la compra</title>
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
     <header>
         <h1>Lista de la compra</h1>
     </header>
-    <form>
+    <main>
         <label for="nombre-prod">Nombre del producto</label>
         <input type="text" id="nombre-prod" /><br>
         <label for="precio-unidad">Precio por unidad</label>
@@ -17,7 +18,10 @@
         <label for="cantidad-prod">Cantidad</label>
         <input type="text" id="cantidad-prod" /><br>
         <button onclick="aniadirProducto()">Añadir</button>
-    </form>
+        <div id="contendor">
+            <!-- Aquí se genera cada producto añadido -->
+        </div>
+    </main>
     <footer>
         <p>&reg; g-lin-al 2026</p>
     </footer>
