@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de la compra</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
@@ -14,17 +14,20 @@
         <label for="nombre-prod">Nombre del producto</label>
         <input type="text" id="nombre-prod" /><br>
         <label for="precio-unidad">Precio por unidad</label>
-        <input type="text" id="precio-unidad" /><br>
+        <input type="number" id="precio-unidad" /><br>
         <label for="cantidad-prod">Cantidad</label>
-        <input type="text" id="cantidad-prod" /><br>
+        <input type="number" id="cantidad-prod" /><br>
         <button onclick="aniadirProducto()">Añadir</button>
         <div id="contendor">
             <!-- Aquí se genera cada producto añadido -->
+            <table id="productos"></table>
+            <!-- Debajo, el subtotal -->
+            <table id="subtotal"></table>
         </div>
     </main>
     <footer>
-        <p>&reg; g-lin-al 2026</p>
+        <p>&copy;g-lin-al - 2026</p>
     </footer>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

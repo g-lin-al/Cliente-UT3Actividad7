@@ -4,8 +4,45 @@ function aniadirProducto() {
     let campo_cantidad_prod = document.getElementById("cantidad-prod");
 
     let producto = campo_nombre_prod.value.trim();
-    let precio_ud = campo_precio_unidad.value;
-    let cantidad_ud = campo_cantidad_prod.value;
+    let precio_ud = parseFloat(campo_precio_unidad.value);
+    let cantidad_ud = parseInt(campo_cantidad_prod.value);
 
-    let div_producto = document.createElement("div");
+    let tr_producto = document.createElement("tr");
+    let td_nombre = document.createElement("td");
+    let td_precio_ud = document.createElement("td");
+    let td_cantidad_ud = document.createElement("td");
+    td_cantidad_ud.classList.add("precio");
+
+    td_nombre.textContent = producto;
+    td_precio_ud.textContent = precio_ud + "€";
+    td_cantidad_ud.textContent = cantidad_ud + " unidades";
+
+    tr_producto.appendChild(td_nombre);
+    tr_producto.appendChild(td_precio_ud);
+    tr_producto.appendChild(td_cantidad_ud);
+
+    let tabla_prod = document.getElementById("productos");
+    tabla_prod.appendChild(tr_producto);
 }
+
+function actualizarTotal() {
+    let todos_precios = document.getElementsByClassName("precio");
+    let sumatorio = sum(todos_precios);
+
+    let tr_subtotal = document.createElement("tr");
+    let td_1 = document.createElement("td");
+    let td_total = document.createElement("td");
+    let td_subtotal = document.createElement("td");
+
+    td_total.textContent = "Total:";
+    td_subtotal.textContent = sumatorio;
+
+    tr_subtotal.appendChild(td_1);
+    tr_subtotal.appendChild(td_total);
+    tr_subtotal.appendChild(td_subtotal);
+
+    let tabla_subtotal = document.getElementById("subtotal");
+    tabla_subtotal.appendChild(tr_subtotal);
+}
+
+actualizarTotal();
