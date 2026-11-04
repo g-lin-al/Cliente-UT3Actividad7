@@ -25,16 +25,18 @@ function actualizarTotal() {
     tabla_subtotal.appendChild(tr_subtotal);
 }
 
-function eliminarElemento() {
-    let tabla_prod = document.getElementById("productos");
+// function eliminarElemento() {
+//     let tabla_prod = document.getElementById("productos");
 
-    tabla_prod.removeChild("tr");
-}
+//     tabla_prod.removeChild("tr");
+// }
 
 function aniadirProducto() {
     let campo_nombre_prod = document.getElementById("nombre-prod");
     let campo_precio_unidad = document.getElementById("precio-unidad");
     let campo_cantidad_prod = document.getElementById("cantidad-prod");
+
+    let tabla_prod = document.getElementById("productos");
 
     let producto = campo_nombre_prod.value.trim();
     let precio_ud = parseFloat(campo_precio_unidad.value);
@@ -49,7 +51,10 @@ function aniadirProducto() {
     td_precio_ud.classList.add("precio");
     td_cantidad_ud.classList.add("unidades");
     button_borrar.textContent = "Eliminar";
-    button_borrar.onclick = "eliminarElemento()";
+    button_borrar.onclick = function() {
+        tabla_prod.removeChild(tr_producto);
+        actualizarTotal();
+    };
     td_borrar.appendChild(button_borrar);
 
     td_nombre.textContent = producto;
@@ -61,7 +66,6 @@ function aniadirProducto() {
     tr_producto.appendChild(td_cantidad_ud);
     tr_producto.appendChild(td_borrar);
 
-    let tabla_prod = document.getElementById("productos");
     tabla_prod.appendChild(tr_producto);
     
     actualizarTotal();
