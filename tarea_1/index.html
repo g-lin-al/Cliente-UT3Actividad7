@@ -11,13 +11,15 @@
         <h1>Lista de la compra</h1>
     </header>
     <main>
-        <label for="nombre-prod">Nombre del producto</label>
-        <input type="text" id="nombre-prod" /><br>
-        <label for="precio-unidad">Precio por unidad</label>
-        <input type="number" id="precio-unidad" /><br>
-        <label for="cantidad-prod">Cantidad</label>
-        <input type="number" id="cantidad-prod" /><br>
-        <button onclick="aniadirProducto()">Añadir</button>
+        <div id="form">
+            <label for="nombre-prod">Nombre del producto</label>
+            <input type="text" id="nombre-prod" /><br>
+            <label for="precio-unidad">Precio por unidad</label>
+            <input type="number" id="precio-unidad" /><br>
+            <label for="cantidad-prod">Cantidad</label>
+            <input type="number" id="cantidad-prod" /><br>
+            <button onclick="aniadirProducto()">Añadir</button>
+        </div>
         <div id="contendor">
             <!-- Aquí se genera cada producto añadido -->
             <table id="productos"></table>

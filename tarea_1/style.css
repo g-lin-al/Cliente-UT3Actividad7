@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+header {
+    margin: 2%;
+}
+
+table {
+    margin: 1% auto;
+    width: 80%;
+    background-color: white;
+    border-collapse: collapse;
+    border: 1px black solid;
+}
+
+tr {
+    border: 1px black solid;
+}
+
+td {
+    border: 1px black solid;
+    width: 25%;
+}
+
+footer {
+    margin: 2%;
+    padding: 1%;
+    border-top: 2px grey solid;
+}
