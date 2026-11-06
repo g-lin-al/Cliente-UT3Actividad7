@@ -25,12 +25,6 @@ function actualizarTotal() {
     tabla_subtotal.appendChild(tr_subtotal);
 }
 
-// function eliminarElemento() {
-//     let tabla_prod = document.getElementById("productos");
-
-//     tabla_prod.removeChild("tr");
-// }
-
 function aniadirProducto() {
     let campo_nombre_prod = document.getElementById("nombre-prod");
     let campo_precio_unidad = document.getElementById("precio-unidad");
@@ -42,7 +36,10 @@ function aniadirProducto() {
     let precio_ud = parseFloat(campo_precio_unidad.value);
     let cantidad_ud = parseInt(campo_cantidad_prod.value);
 
-    let tr_producto = document.createElement("tr");
+    if ((precio_ud < 0) || (cantidad_ud <= 0)) {
+        alert("Error en los datos.")
+    } else {
+        let tr_producto = document.createElement("tr");
     let td_nombre = document.createElement("td");
     let td_precio_ud = document.createElement("td");
     let td_cantidad_ud = document.createElement("td");
@@ -69,4 +66,5 @@ function aniadirProducto() {
     tabla_prod.appendChild(tr_producto);
     
     actualizarTotal();
+    }
 }
