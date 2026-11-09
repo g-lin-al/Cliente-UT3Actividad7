@@ -40,18 +40,18 @@ function aniadirProducto() {
         alert("Error en los datos.")
     } else {
         let tr_producto = document.createElement("tr");
-    let td_nombre = document.createElement("td");
-    let td_precio_ud = document.createElement("td");
-    let td_cantidad_ud = document.createElement("td");
-    let td_borrar = document.createElement("td");
-    let button_borrar = document.createElement("button");
-    td_precio_ud.classList.add("precio");
-    td_cantidad_ud.classList.add("unidades");
-    button_borrar.textContent = "Eliminar";
-    button_borrar.onclick = function() {
-        tabla_prod.removeChild(tr_producto);
+        let td_nombre = document.createElement("td");
+        let td_precio_ud = document.createElement("td");
+        let td_cantidad_ud = document.createElement("td");
+        let td_borrar = document.createElement("td");
+        let button_borrar = document.createElement("button");
+        td_precio_ud.classList.add("precio");
+        td_cantidad_ud.classList.add("unidades");
+        button_borrar.textContent = "Eliminar";
+        button_borrar.onclick = function() {
+            tabla_prod.removeChild(tr_producto);
         actualizarTotal();
-    };
+    }
     td_borrar.appendChild(button_borrar);
 
     td_nombre.textContent = producto;

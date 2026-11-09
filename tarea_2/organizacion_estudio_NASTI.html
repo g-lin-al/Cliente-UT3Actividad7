@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organización estudio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f8;
+            margin: 40px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #424b70;
+            margin-bottom: 35px;
+            font-size: 32px;
+        } 
+        
+        /* Formulario */
+        body > div {
+            display: inline-block;
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+        select, input {
+            padding: 9px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        } 
+        
+        /* Botones */
+        button {
+            background-color: #5965a8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 17px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #414b85;
+        } 
+        
+        /* Tabla */
+        table {
+            width: 90%;
+            margin: 35px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        } 
+        
+        /* Colores de las asignaturas */
+        .dwec {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .dwes {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .diw {
+            background-color: #f3e8ff;
+            color: #7e22ce;
+        }
+        
+        .daw {
+            background-color: #ffedd5;
+            color: #c2410c;
+        }
+
+        .ipe {
+            background-color: #fce7f3;
+            color: #be185d;
+        }
+        
+        .frameworks {
+            background-color: #ccfbf1;
+            color: #0f766e;
+        }
+
+        .proyecto {
+            background-color: #fef3c7;
+            color: #92400e;
+        } 
+
+        /* Botón de acabar sesión */
+        td button {
+            background-color: #5965a8;
+        }
+
+        /* Sesión terminada */
+        .deshabilitado {
+            background-color: #e5e7eb !important;
+            color: #9ca3af;
+            opacity: 0.7;
+        }
+        
+        .deshabilitado button {
+            background-color: #9ca3af;
+            color: white;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Study planning</h1>
+    <div>
+        Nombre del modulo:
+        <select name="modulo" id="modulo">
+            <option value="dwec">DWEC</option>
+            <option value="dwes">DWES</option>
+            <option value="diw">DIW</option>
+            <option value="daw">DAW</option>
+            <option value="ipe">IPE</option>
+            <option value="frameworks">FRAMEWORKS</option>
+            <option value="proyecto">PROYECTO</option>
+        </select>
+    </div>
+    <div>
+        Hora de inicio:
+        <input type="time" id="inicio" />
+    </div>
+    <div>
+        Duración en horas
+        <input type="number" name="duracion" id="duracion" />
+    </div>
+    <button onclick="aniadirSesion()">Añadir sesión</button>
+    <table id="tabla">
+        
+    </table>
+    <script>
+            function aniadirSesion() {
+            //comporbar después que me da bien los datos
+                let modulo = document.getElementById("modulo").value;
+                let horaInicio = document.getElementById("inicio").value;
+                let duracion = document.getElementById("duracion").value;
+
+                let fila = document.createElement("tr");
+
+                let celda_modulo = document.createElement("td");
+                celda_modulo.textContent = modulo.toUpperCase();
+                celda_modulo.classList.add(modulo);
+                fila.appendChild(celda_modulo);
+
+                let celda_inicio = document.createElement("td");
+                celda_inicio.textContent = horaInicio;
+                fila.appendChild(celda_inicio);
+
+                let celda_duracion = document.createElement("td");
+                celda_duracion.textContent = duracion + " horas";
+                fila.appendChild(celda_duracion);
+
+                let tabla = document.getElementById("tabla");
+
+                let boton = document.createElement("button");
+                boton.textContent = "Acabar sesión";
+                boton.onclick = function () {
+                    boton.disabled = true;
+                    fila.classList.add("deshabilitado");
+                };
+
+                fila.appendChild(boton);
+                tabla.appendChild(fila);
+
+                // no se como volver a que sea clean
+            }
+        </script>
+</body>
+</html>
